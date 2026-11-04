@@ -7,7 +7,7 @@ void dijkstra(){
         isvisited[i] = 0;
         dis[i] = llmx;
     }
-    priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> pq; // dis, tar
+    priority_queue<pll, pll, greater<pll>> pq; // dis, tar
     pq.push({0, 1}); // change starting point if needed 
     while(pq.size()){
         ll tar = pq.top().second, len = pq.top().first;
