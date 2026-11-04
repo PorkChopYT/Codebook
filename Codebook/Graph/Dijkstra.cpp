@@ -10,7 +10,7 @@ void dijkstra(){
     priority_queue<pll, pll, greater<pll>> pq; // dis, tar
     pq.push({0, 1}); // change starting point if needed 
     while(pq.size()){
-        ll tar = pq.top().second, len = pq.top().first;
+        ll tar = pq.top().ss, len = pq.top().ff;
         pq.pop();
         if(!isvisited[tar]){
             dis[tar] = min(dis[tar], len);
