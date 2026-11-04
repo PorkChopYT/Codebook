@@ -1,4 +1,4 @@
-vector<vector<pair<ll,ll>>> v(max_n);
+vector<vector<pll>> v(max_n);
 ll dis[max_n];
 bool isvisited[max_n];
 
