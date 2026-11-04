@@ -3,19 +3,19 @@ struct LCA{
     vector<ll> par, depth;
     ll n = 0;
     
-    LCA(ll sz){
+    LCA(ll sz, ll root){ // passes root here
         n = sz;
         jump.resize(sz+10);
         par.resize(sz+10, 0);
         depth.resize(sz+10, 0);
-        bfs();
+        bfs(root);
         binary_lifting();
     }
     
-    void bfs(){ // Assume the root is 1
+    void bfs(ll root){
         queue<pair<ll, ll>> q;
-        q.push({1, 1});
-        par[1] = 1, depth[1] = 0;
+        q.push({root, root});
+        par[root] = root, depth[root] = 0;
         while(q.size()){
             ll id = q.front().ff, p = q.front().ss;
             q.pop();
