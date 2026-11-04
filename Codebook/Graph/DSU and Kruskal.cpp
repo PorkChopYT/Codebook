@@ -2,7 +2,7 @@
 
 struct DSU{
     ll n, m;
-    vector<tuple<ll, ll, ll>> edge;
+    vector<tll> edge;
     vector<ll> sz, connected;
 
     DSU(ll N){
