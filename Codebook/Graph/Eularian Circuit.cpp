@@ -29,10 +29,10 @@ struct Eularian_circuit{
         ans.pb(id);
     }
     
-    vector<ll> hierholzer(){
+    vector<ll> hierholzer(ll st){
         vector<ll> ans;
         for(ll i = 1; i <= n; i++) if(deg[i]%2 != 0) return {};
-        dfs(1, ans); // start with id = 1
+        dfs(st, ans);
         reverse(ans.begin(), ans.end());
         if((ll)ans.size() != m+1) return {};
         return ans;
