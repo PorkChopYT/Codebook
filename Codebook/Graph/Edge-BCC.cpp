@@ -1,4 +1,7 @@
-ll n, m, cnt = 1, group = 1;
+// Note: Be aware of multiple edges
+// Usage: v[i].pb({j, edge_id}};
+// Can use for detecting bridges
+ll n, m, cnt = 1, group = 0;
 vector<vector<pll>> v(100010);
 ll vis_order[100010], low[100010], compress[100010];
 stack<ll> st;
@@ -13,12 +16,12 @@ void dfs(ll id, ll p, ll i){
   	}
   	if(vis_order[id] == low[id]){
         ll cur = 0;
+		group++;
         do{
             cur = st.top();
             compress[st.top()] = group;
             st.pop();
         } while(id != cur);
-        group++;
   	}
 }
 
