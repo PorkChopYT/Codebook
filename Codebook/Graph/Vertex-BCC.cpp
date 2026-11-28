@@ -5,7 +5,7 @@ ll vis_order[500010], low[500010];
 stack<ll> st;
 bool cut[500010]; // This detect all articulation Point
 
-
+void dfs(ll id, ll par_eid){
 	vis_order[id] = low[id] = cnt;
 	cnt++;
 	ll child = 0;
