@@ -36,6 +36,7 @@ void dfs(ll id, ll par_eid){
 
 void tarjan(){
 	for(ll i = 0; i <= n; i++)
-		vis_order[i] = low[i] = compress[i] = 0;
+		vis_order[i] = low[i] = cut[i] = 0;
+	for(ll i = 0; i <= n; i++) bcc[i].clear();
 	for(ll i = 1; i <= n; i++) if(!vis_order[i]) dfs(i, -1);
 }
