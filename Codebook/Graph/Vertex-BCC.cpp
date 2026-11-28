@@ -14,7 +14,7 @@ void dfs(ll id, ll par_eid){
         if(!vis_order[x]){
         	child++;
         	st.push(eid);
-        	dfs(x, id);
+        	dfs(x, eid);
         	low[id] = min(low[x], low[id]);
 			if(low[x] >= vis_order[id]){
         		if(par_eid != -1 || child > 1) cut[id] = 1;
