@@ -5,15 +5,15 @@ ll vis_order[500010], low[500010];
 stack<ll> st;
 bool cut[500010]; // This detect all articulation Point
 
-void dfs(ll id, ll par_eid){
+
 	vis_order[id] = low[id] = cnt;
-	st.push(id);
 	cnt++;
 	ll child = 0;
 	for(auto [x, eid]: v[id]){
 		if(par_eid == eid) continue;
         if(!vis_order[x]){
         	child++;
+        	st.push(eid);
         	dfs(x, id);
         	low[id] = min(low[x], low[id]);
 			if(low[x] >= vis_order[id]){
