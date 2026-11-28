@@ -1,8 +1,9 @@
 // Note: Be aware of multiple edges
 // Usage: v[i].pb({j, edge_id}};
-// Can use for detecting bridges
+// Returns bridges in vector<pll> bridge and groups in compress
 ll n, m, cnt = 1, group = 0;
 vector<vector<pll>> v(100010);
+vector<pll> bridge;
 ll vis_order[100010], low[100010], compress[100010];
 stack<ll> st;
 
@@ -11,8 +12,13 @@ void dfs(ll id, ll i){
   	st.push(id);
   	cnt++;
   	for(auto [x, eid]: v[id]){
-    	if(!vis_order[x]) dfs(x, eid);
-    	if(eid != i) low[id] = min(low[id], low[x]);
+		if(eid == i) continue;
+    	if(!vis_order[x]){
+			dfs(x, eid);
+			low[id] = min(low[id], low[x]);
+			if(dfs_order[cur] <= low[x]) bridge.pb({{x, cur}});
+		}
+    	else low[id] = min(low[id], low[x]);
   	}
   	if(vis_order[id] == low[id]){
         ll cur = 0;
