@@ -16,7 +16,7 @@ void dfs(ll id, ll i){
     	if(!vis_order[x]){
 			dfs(x, eid);
 			low[id] = min(low[id], low[x]);
-			if(dfs_order[cur] <= low[x]) bridge.pb({{x, cur}});
+			if(dfs_order[cur] < low[x]) bridge.pb({{x, cur}});
 		}
     	else low[id] = min(low[id], low[x]);
   	}
