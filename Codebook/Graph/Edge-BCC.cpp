@@ -11,7 +11,7 @@ void dfs(ll id, ll i){
   	st.push(id);
   	cnt++;
   	for(auto [x, eid]: v[id]){
-    	if(!vis_order[x]) dfs(x, id, eid);
+    	if(!vis_order[x]) dfs(x, eid);
     	if(eid != i) low[id] = min(low[id], low[x]);
   	}
   	if(vis_order[id] == low[id]){
